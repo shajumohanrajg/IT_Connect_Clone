@@ -1,4 +1,4 @@
-const baseURL = 'http://127.0.0.1:1212/api/v1/OMM2/';
+const baseURL = 'https://itconnectclone.azurewebsites.net/api/v1/OMM2/';
 
 export const Lightapi = `${baseURL}light/`;
 export const Materialapi = `${baseURL}material/`;
@@ -20,7 +20,7 @@ export const outletAddAdListapi = `${baseURL}add_advertisement_list/`;
 export const OutletMediaDetailapi = `${baseURL}outlet_media_list/<pk>/`;
 export const AddAdvertisementDetailapi = `${baseURL}add_advertisement_list/<pk>/`;
 
-const baseURL1 = 'http://127.0.0.1:1212/api/v1/';
+const baseURL1 = 'https://itconnectclone.azurewebsites.net/api/v1/';
 
 export const Usersapi = `${baseURL1}users/`;
 export const JobForapi = `${baseURL1}job/jobfor/`;
@@ -31,7 +31,7 @@ export const JobListapi = `${baseURL1}job/job_list/`;
 export const JobTypeListapi = `${baseURL1}job/jobtype_list/`;
 export const DesignTypeListapi = `${baseURL1}job/designtype_list/`;
 
-const baseURL2 = 'http://127.0.0.1:1212/api/v1/';
+const baseURL2 = 'https://itconnectclone.azurewebsites.net/api/v1/';
 
 export const HoardingFormapi = `${baseURL2}hoarding/hoarding_form/`;
 export const AddAdvertisementapi = `${baseURL2}hoarding/add_advertisement/`;
