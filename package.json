@@ -2,7 +2,6 @@
     "name": "Poorvika-IT-Clone",
     "version": "3.3.1",
     "private": true,
-    "homepage": "https://myusername.github.io/",
     "dependencies": {
         "@emotion/cache": "^11.9.3",
         "@emotion/react": "^11.11.1",
@@ -51,13 +50,11 @@
         "yup": "^0.32.11"
     },
     "scripts": {
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -b master -d build",
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
-    },
+      },
     "eslintConfig": {
         "extends": [
             "react-app"
