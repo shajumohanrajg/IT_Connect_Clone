@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
         button: {
             border: 0,
             borderRadius: 15,
-            background: 'linear-gradient(140deg, #42c3ca 0%, #42c3ca 50%, #42c3cac7 75%)',
+            //background: 'linear-gradient(140deg, #42c3ca 0%, #42c3ca 50%, #42c3cac7 75%)',
             color: '#fff',
             fontWeight: 500,
             fontSize: '1rem',
