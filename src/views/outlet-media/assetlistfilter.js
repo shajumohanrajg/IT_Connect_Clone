@@ -785,7 +785,7 @@ function DataTable() {
                 <Grid container spacing={1}>
                     {filteredData.length > 0 ? (
                         filteredData.map((item) => (
-                            <Grid item xs={12} sm={6} md={6} lg={4} key={item.id}>
+                            <Grid item xs={12} sm={6} md={6} xl={4} lg={6} key={item.id}>
                                 <Link href="/assetstatus" underline="none" sx={{ textTransform: 'none' }}>
                                     <Card sx={{ width: '100%', my: 0, border: '1px solid #ebebeb' }}>
                                         <List>
@@ -890,7 +890,7 @@ function DataTable() {
                         </Grid>
                     )}
                 </Grid>
-                <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton} href="/addad">
+                <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton1} href="/addad">
                     <AddIcon sx={{ color: 'white' }} />
                 </Fab>
             </Box>

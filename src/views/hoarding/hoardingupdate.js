@@ -467,6 +467,33 @@ const SamplePage = () => {
                         />
                     </Grid>
                     <Grid item xs={12} md={6} xl={4}>
+                        <TextField
+                            fullWidth
+                            id="asset_image"
+                            label="Asset Image"
+                            type="file"
+                            inputProps={{ accept: 'image/*' }}
+                            onChange={handleImageChange}
+                            InputLabelProps={{
+                                shrink: true
+                            }}
+                            variant="outlined"
+                        />
+                    </Grid>
+                    <Grid item xs={12} md={6} xl={4}>
+                        <TextField
+                            fullWidth
+                            id="document"
+                            label="Document"
+                            type="file"
+                            onChange={handleImageChange1}
+                            InputLabelProps={{
+                                shrink: true
+                            }}
+                            variant="outlined"
+                        />
+                    </Grid>
+                    {/* <Grid item xs={12} md={6} xl={4}>
                         <FormControl fullWidth variant="outlined" size="small" className={classes.select1}>
                             <InputLabel className={classes.label} id="asset_image">
                                 Asset Image
@@ -514,7 +541,7 @@ const SamplePage = () => {
                                 }}
                             />
                         </FormControl>
-                    </Grid>
+                    </Grid> */}
                     <Grid item xs={12} md={6} xl={4}>
                         <FormControl fullWidth className={classes.select}>
                             <InputLabel className={classes.label} id="status-select-label">

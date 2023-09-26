@@ -113,6 +113,7 @@ const MainRoutes = {
         {
             path: 'floordiagram',
             element: <MyForm />
+            //loading: true
         },
         {
             path: '360floordiagram',

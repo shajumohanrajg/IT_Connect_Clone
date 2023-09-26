@@ -41,6 +41,7 @@ import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import UnpublishedIcon from '@mui/icons-material/Unpublished';
 import { CardContent, Chip, Link } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { outletlist } from './datalists';
 
 const CardStyle = styled(Card)(({ theme }) => ({
     overflow: 'hidden',
@@ -465,6 +466,7 @@ function DataTable() {
     }, []);
 
     const isSmallScreen = useMediaQuery('(max-width:600px)');
+
     return (
         <>
             <DialogBox open={showDialog} onClose={handleDialogClose} statusCode={statusCode} />
@@ -480,8 +482,114 @@ function DataTable() {
                         <br></br>
                         <Grid container spacing={2} maxWidth="xl">
                             <br></br>
+                            <Grid container spacing={1} direction="row" pl={2}>
+                                {outletlist.length > 0 ? (
+                                    outletlist.map((item) => (
+                                        <Grid item xs={12} sm={6} md={6} lg={4} key={item.id}>
+                                            <Link href="/assetstatus" underline="none" sx={{ textTransform: 'none' }}>
+                                                <CardStyle>
+                                                    <CardContent>
+                                                        <Grid container direction="column" spacing={1}>
+                                                            <Grid item>
+                                                                <Typography variant="h4">{item.name}</Typography>
+                                                            </Grid>
+                                                            <Grid container spacing={0} direction="row" sx={{ mt: 0, p: 2 }}>
+                                                                <Grid item xs={12} md={12} xl={6}>
+                                                                    <Typography variant="subtitle1" sx={{ fontSize: isMobile ? 13 : 14 }}>
+                                                                        <span>DOB :</span>{' '}
+                                                                        <span style={{ color: '#bfbfbf' }}>{item.dob}</span>
+                                                                    </Typography>
+                                                                </Grid>
+                                                                <Grid item xs={12} md={12} xl={6}>
+                                                                    <Typography
+                                                                        variant="subtitle1"
+                                                                        sx={{
+                                                                            whiteSpace: 'nowrap',
+                                                                            overflow: 'hidden',
+                                                                            fontSize: isMobile ? 13 : 14
+                                                                        }}
+                                                                    >
+                                                                        <span style={{}}>ASM :</span>{' '}
+                                                                        <span style={{ color: '#bfbfbf' }}>{item.asm}</span>
+                                                                    </Typography>
+                                                                </Grid>
+                                                            </Grid>
 
-                            {hoarding.length > 0 ? (
+                                                            <Grid container spacing={0} direction="row" sx={{ mt: 1 }}>
+                                                                <Grid item xs={3} sm={3} md={3} lg={3}>
+                                                                    <Chip
+                                                                        icon={<PlaylistAddCheckCircleIcon fontSize="medium" color="info" />}
+                                                                        label="16"
+                                                                        sx={{
+                                                                            backgroundColor: 'transparent',
+                                                                            border: '1px solid #ebebeb'
+                                                                        }}
+                                                                    />
+                                                                </Grid>
+                                                                <Grid item xs={3} sm={3} md={3} lg={3}>
+                                                                    <Chip
+                                                                        icon={<CheckCircle fontSize="small" color="success" />}
+                                                                        label="4"
+                                                                        sx={{
+                                                                            backgroundColor: 'transparent',
+                                                                            border: '1px solid #ebebeb'
+                                                                        }}
+                                                                    />
+                                                                </Grid>
+                                                                <Grid item xs={3} sm={3} md={3} lg={3}>
+                                                                    <Chip
+                                                                        icon={<UnpublishedIcon fontSize="small" color="error" />}
+                                                                        label="16"
+                                                                        sx={{
+                                                                            backgroundColor: 'transparent',
+                                                                            border: '1px solid #ebebeb'
+                                                                        }}
+                                                                    />
+                                                                </Grid>
+                                                                <Grid item xs={3} sm={3} md={3} lg={3}>
+                                                                    <Chip
+                                                                        icon={<TripOriginIcon fontSize="small" color="primary" />}
+                                                                        label="16"
+                                                                        sx={{
+                                                                            backgroundColor: 'transparent',
+                                                                            border: '1px solid #ebebeb'
+                                                                        }}
+                                                                    />
+                                                                </Grid>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </CardContent>
+                                                </CardStyle>
+                                            </Link>
+                                        </Grid>
+                                    ))
+                                ) : (
+                                    <Grid item xs={12} sm={12} md={12}>
+                                        <Card sx={{ width: '100%', boxShadow: 0 }}>
+                                            <Stack
+                                                direction={{ xs: 'column', sm: 'row' }}
+                                                justifyContent="space-between"
+                                                alignItems="center"
+                                                spacing={2}
+                                                sx={{ padding: 1 }}
+                                            >
+                                                <List>
+                                                    <ListItem>
+                                                        <ListItemText>
+                                                            {' '}
+                                                            <Typography variant="h3" sx={{ color: '#444444' }}>
+                                                                No Data Available.
+                                                            </Typography>
+                                                        </ListItemText>
+                                                    </ListItem>
+                                                </List>
+                                            </Stack>
+                                        </Card>
+                                    </Grid>
+                                )}
+                            </Grid>
+
+                            {/* {hoarding.length > 0 ? (
                                 hoarding.map((item) => (
                                     <Grid container spacing={1} direction="row" pl={2} key={item.id}>
                                         <Grid item xs={12} sm={6} md={6} lg={4}>
@@ -817,7 +925,7 @@ function DataTable() {
                                         </Stack>
                                     </Card>
                                 </Grid>
-                            )}
+                            )} */}
                         </Grid>
                     </TabPanel>
                     <TabPanel value="2" sx={{ padding: 0 }}>
@@ -1114,7 +1222,33 @@ function DataTable() {
                                     </Grid>
 
                                     <Grid item xs={12} md={12} xl={12}>
-                                        <FormControl fullWidth variant="outlined" size="small" className={classes.select1}>
+                                        <TextField
+                                            labelid="adimage"
+                                            id="ad_image"
+                                            type="file"
+                                            name="ad_image"
+                                            className={classes.input}
+                                            inputProps={{ accept: 'image/*' }}
+                                            // startAdornment={
+                                            //     <InputAdornment position="start">
+                                            //         <PhotoCameraIcon />
+                                            //     </InputAdornment>
+                                            // }
+                                            // onChange={handleImageChange}
+                                            //onChange={(e) => handleImageChange(index, e.target.files[0])}
+                                            onChange={handleImageChange}
+                                            fullWidth
+                                            variant="outlined"
+                                            label="Ad Image"
+                                            InputLabelProps={{
+                                                shrink: 'true',
+                                                classes: {
+                                                    focused: classes.label
+                                                }
+                                            }}
+                                        />
+
+                                        {/* <FormControl fullWidth variant="outlined" size="small" className={classes.select1}>
                                             <InputLabel className={classes.label} id="adimage">
                                                 Ad Image
                                             </InputLabel>
@@ -1137,7 +1271,7 @@ function DataTable() {
                                                     classes: {}
                                                 }}
                                             />
-                                        </FormControl>
+                                        </FormControl> */}
                                     </Grid>
                                     <Grid item xs={12} md={12} xl={12}>
                                         <FormControl fullWidth className={classes.select}>

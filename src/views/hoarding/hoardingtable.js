@@ -464,7 +464,7 @@ function DataTable() {
                             {/* {Array.from(Array(6)).map((_, index) => ( */}
                             {hoarding.length > 0 ? (
                                 hoarding.map((item) => (
-                                    <Grid item xs={12} sm={6} md={6} lg={4} key={item.id}>
+                                    <Grid item xs={12} sm={6} md={6} xl={6} lg={6} key={item.id}>
                                         <Card sx={{ width: '100%', my: 0, border: '1px solid #ebebeb' }}>
                                             <List>
                                                 <ListItem>

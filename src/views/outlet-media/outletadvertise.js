@@ -55,7 +55,7 @@ const SamplePage = () => {
                         </ListItem>
                     </List>
                     {isMobile ? (
-                        <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton} href="/outletadform">
+                        <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton1} href="/outletadform">
                             <AddIcon sx={{ color: 'white' }} />
                         </Fab>
                     ) : (

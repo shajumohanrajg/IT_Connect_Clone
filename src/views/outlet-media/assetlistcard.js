@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'hidden',
         //minHeight: 265,
         transition: '0.7s',
+        animation: 'none !important',
         '&:hover': {
             background: '#309df0',
             color: '#fff',

@@ -256,6 +256,11 @@ const SamplePage = () => {
             })
                 .then((response) => {
                     console.log(response.data);
+                    setResponseMessage('SuccesssFully Outlet Adform Updated');
+
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000);
                 })
                 .catch((error) => {
                     if (error.response) {

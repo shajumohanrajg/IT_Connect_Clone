@@ -22,6 +22,7 @@ import Table from './statustable';
 
 import AddIcon from '@mui/icons-material/Add';
 import { Fab, useMediaQuery, useTheme } from '@mui/material';
+import HeaderCard from './HeaderCard';
 
 const SamplePage = () => {
     const theme = useTheme();
@@ -131,40 +132,8 @@ const SamplePage = () => {
                     confirmButtonText: 'OK'
                 })}
 
-            <Card sx={{ width: '100%', boxShadow: 0 }}>
-                <Stack
-                    direction={{ xs: 'column', sm: 'row' }}
-                    justifyContent="space-between"
-                    alignItems="center"
-                    spacing={2}
-                    sx={{ padding: 1 }}
-                >
-                    <List>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar sx={{ background: 'linear-gradient(to right bottom, #fb6340, #fbb140)' }}>
-                                    <StoreOutlinedIcon sx={{ color: 'white' }} />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText>
-                                {' '}
-                                <Typography variant="h3" sx={{ color: '#444444' }}>
-                                    Status
-                                </Typography>
-                            </ListItemText>
-                        </ListItem>
-                    </List>
-                    {isMobile ? (
-                        <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton} onClick={handleOpen}>
-                            <AddIcon sx={{ color: 'white' }} />
-                        </Fab>
-                    ) : (
-                        <Button className={classes.Button} variant="contained" onClick={handleOpen} startIcon={<AddCircleOutlinedIcon />}>
-                            Status
-                        </Button>
-                    )}
-                </Stack>
-            </Card>
+            <HeaderCard title="Status" buttonname="Status" handleOpen={handleOpen} />
+
             <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
                 <Box sx={style}>
                     <Grid container spacing={2} justifyContent="center" alignItems="center">

@@ -53,7 +53,7 @@ const OrderTimeline = () => {
     };
 
     // Placeholder data
-    const data = [
+    const timelinedata = [
         {
             createdAt: new Date(),
             Location1: 'TN-VIRUGAMBAKKAM',
@@ -123,7 +123,7 @@ const OrderTimeline = () => {
     return (
         <>
             <Timeline position="right" sx={{ mt: 0, pt: 0 }}>
-                {data.map(({ createdAt, orderNumber, status, id, model, brand, vendor, updated, Location1 }) => {
+                {timelinedata.map(({ createdAt, orderNumber, status, id, model, brand, vendor, updated, Location1 }) => {
                     const text = orderStatusColor(status.id.toString())?.text;
                     const color = orderStatusColor(status.id.toString())?.color;
                     const dotColor = orderStatusColor(status.id.toString())?.dotColor;

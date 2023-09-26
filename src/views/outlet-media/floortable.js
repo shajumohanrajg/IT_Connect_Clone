@@ -52,6 +52,8 @@ import withAuth from '../pages/authentication/authentication3/withAuth';
 import style from '../styles/Boxstyle';
 import useStyles from '../styles/styles';
 import DialogBox from './DialogBox';
+import CircularProgress from '@mui/material/CircularProgress';
+import LinearProgress from '@mui/material/LinearProgress';
 
 function DataTable() {
     const navigate = useNavigate();

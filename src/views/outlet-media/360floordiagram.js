@@ -1,9 +1,28 @@
-import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
-import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
-import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined';
+// import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
+// import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
+// import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined';
+
+// import {
+//     Box,
+//     Button,
+//     Card,
+//     FormControl,
+//     Grid,
+//     InputLabel,
+//     MenuItem,
+//     Select,
+//     Stack,
+//     TextField,
+//     Typography,
+//     useMediaQuery,
+//     useTheme
+// } from '@mui/material';
 
 import {
     Box,
+    StoreOutlinedIcon,
+    FileUploadOutlinedIcon,
+    AddCircleOutlinedIcon,
     Button,
     Card,
     FormControl,
@@ -15,30 +34,51 @@ import {
     TextField,
     Typography,
     useMediaQuery,
-    useTheme
-} from '@mui/material';
-import Avatar from '@mui/material/Avatar';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemText from '@mui/material/ListItemText';
-import Modal from '@mui/material/Modal';
-import Axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import { isWebUri } from 'valid-url';
+    useTheme,
+    Avatar,
+    List,
+    ListItem,
+    ListItemAvatar,
+    ListItemText,
+    Modal,
+    useNavigate,
+    Swal,
+    useEffect,
+    useState,
+    React,
+    isWebUri,
+    Axios,
+    ApiComponent,
+    DegreeImageapi,
+    Showroomapi,
+    withAuth,
+    style,
+    useStyles,
+    DialogBox
+} from './muiComponents';
+// import Avatar from '@mui/material/Avatar';
+// import List from '@mui/material/List';
+// import ListItem from '@mui/material/ListItem';
+// import ListItemAvatar from '@mui/material/ListItemAvatar';
+// import ListItemText from '@mui/material/ListItemText';
+// import Modal from '@mui/material/Modal';
+// import Axios from 'axios';
+// import React, { useEffect, useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import Swal from 'sweetalert2';
+// import { isWebUri } from 'valid-url';
 
-import ApiComponent from '../apicomp/ApiComponent';
-import { DegreeImageapi, Showroomapi } from '../apicomp/Apiurls';
-import withAuth from '../pages/authentication/authentication3/withAuth';
-import style from '../styles/Boxstyle';
-import useStyles from '../styles/styles';
-import DialogBox from './DialogBox';
+// import ApiComponent from '../apicomp/ApiComponent';
+// import { DegreeImageapi, Showroomapi } from '../apicomp/Apiurls';
+// import withAuth from '../pages/authentication/authentication3/withAuth';
+// import style from '../styles/Boxstyle';
+// import useStyles from '../styles/styles';
+// import DialogBox from './DialogBox';
 import Table from './360floordiatable';
 
-import AddIcon from '@mui/icons-material/Add';
-import { Fab } from '@mui/material';
+// import AddIcon from '@mui/icons-material/Add';
+// import { Fab } from '@mui/material';
+import HeaderCard from './HeaderCard';
 
 const SamplePage = () => {
     const theme = useTheme();
@@ -143,41 +183,8 @@ const SamplePage = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 })}
-            <Card sx={{ width: '100%', boxShadow: 0 }}>
-                <Stack
-                    direction={{ xs: 'column', sm: 'row' }}
-                    justifyContent="space-between"
-                    alignItems="center"
-                    spacing={2}
-                    sx={{ padding: 1 }}
-                >
-                    <List>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar sx={{ background: 'linear-gradient(to right bottom, #fb6340, #fbb140)' }}>
-                                    <StoreOutlinedIcon sx={{ color: 'white' }} />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText>
-                                {' '}
-                                <Typography variant="h3" sx={{ color: '#444444' }}>
-                                    360 Floor Diagram
-                                </Typography>
-                            </ListItemText>
-                        </ListItem>
-                    </List>
+            <HeaderCard title="360 Floor Diagram" buttonname="360 Floor Diagram" handleOpen={handleOpen} />
 
-                    {isMobile ? (
-                        <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton} onClick={handleOpen}>
-                            <AddIcon sx={{ color: 'white' }} />
-                        </Fab>
-                    ) : (
-                        <Button className={classes.Button} variant="contained" onClick={handleOpen} startIcon={<AddCircleOutlinedIcon />}>
-                            360 Floor Diagram
-                        </Button>
-                    )}
-                </Stack>
-            </Card>
             <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
                 <Box sx={style}>
                     <Grid container spacing={2} justifyContent="center" alignItems="center">

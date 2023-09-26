@@ -36,6 +36,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import OrderTimeline from './timeline2';
 import MapComponent from './MapComponent';
+import { timelinedata } from './datalists';
 
 const SamplePage = () => {
     const theme = useTheme();
@@ -176,7 +177,7 @@ const SamplePage = () => {
             <CustomCard>
                 <CustomList icon={<StoreOutlinedIcon />} text="Time Management" iconColor="#ffffff" variant="h3" />
                 {/* {isMobile ? (
-                    <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton} onClick={handleOpen}>
+                    <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton1} onClick={handleOpen}>
                         <AddIcon sx={{ color: 'white' }} />
                     </Fab>
                 ) : (
@@ -199,7 +200,7 @@ const SamplePage = () => {
             <Card sx={{ gap: 2, p: 2 }}>
                 <Grid container spacing={2} direction="row">
                     {isMobile ? (
-                        <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton} href="/timelinemob">
+                        <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton1} href="/timelinemob">
                             <HistoryIcon sx={{ color: 'white' }} />
                         </Fab>
                     ) : (

@@ -1,8 +1,56 @@
-import CloseIcon from '@mui/icons-material/Close';
+// import CloseIcon from '@mui/icons-material/Close';
 
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+// import DeleteIcon from '@mui/icons-material/Delete';
+// import EditIcon from '@mui/icons-material/Edit';
+// import {
+//     Box,
+//     Button,
+//     Card,
+//     FormControl,
+//     Grid,
+//     IconButton,
+//     InputLabel,
+//     MenuItem,
+//     Modal,
+//     Select,
+//     Stack,
+//     TextField,
+//     Typography,
+//     useMediaQuery,
+//     useTheme
+// } from '@mui/material';
+// import Avatar from '@mui/material/Avatar';
+// import Dialog from '@mui/material/Dialog';
+// import DialogActions from '@mui/material/DialogActions';
+// import DialogContent from '@mui/material/DialogContent';
+// import DialogContentText from '@mui/material/DialogContentText';
+// import List from '@mui/material/List';
+// import ListItem from '@mui/material/ListItem';
+// import ListItemAvatar from '@mui/material/ListItemAvatar';
+// import ListItemText from '@mui/material/ListItemText';
+// import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+// import Axios from 'axios';
+// import React, { useEffect, useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import Swal from 'sweetalert2';
+
+// import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
+// import UnpublishedOutlinedIcon from '@mui/icons-material/UnpublishedOutlined';
+// import TabContext from '@mui/lab/TabContext';
+// import TabList from '@mui/lab/TabList';
+// import TabPanel from '@mui/lab/TabPanel';
+// import Tab from '@mui/material/Tab';
+// import ApiComponent from '../apicomp/ApiComponent';
+// import { BrandLocationapi } from '../apicomp/Apiurls';
+// import withAuth from '../pages/authentication/authentication3/withAuth';
+// import style from '../styles/Boxstyle';
+// import useStyles from '../styles/styles';
+// import DialogBox from './DialogBox';
+// import React from 'react';
 import {
+    CloseIcon,
+    DeleteIcon,
+    EditIcon,
     Box,
     Button,
     Card,
@@ -17,35 +65,37 @@ import {
     TextField,
     Typography,
     useMediaQuery,
-    useTheme
-} from '@mui/material';
-import Avatar from '@mui/material/Avatar';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemText from '@mui/material/ListItemText';
-import { DataGrid, GridToolbar } from '@mui/x-data-grid';
-import Axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
-
-import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
-import UnpublishedOutlinedIcon from '@mui/icons-material/UnpublishedOutlined';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
-import Tab from '@mui/material/Tab';
-import ApiComponent from '../apicomp/ApiComponent';
-import { BrandLocationapi } from '../apicomp/Apiurls';
-import withAuth from '../pages/authentication/authentication3/withAuth';
-import style from '../styles/Boxstyle';
-import useStyles from '../styles/styles';
-import DialogBox from './DialogBox';
+    useTheme,
+    Avatar,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    List,
+    ListItem,
+    ListItemAvatar,
+    ListItemText,
+    DataGrid,
+    GridToolbar,
+    Axios,
+    React,
+    useEffect,
+    useState,
+    useNavigate,
+    Swal,
+    TaskAltOutlinedIcon,
+    UnpublishedOutlinedIcon,
+    TabContext,
+    TabList,
+    TabPanel,
+    Tab,
+    ApiComponent,
+    BrandLocationapi,
+    withAuth,
+    style,
+    useStyles,
+    DialogBox
+} from './muiComponents';
 
 function DataTable() {
     const theme = useTheme();

@@ -1,50 +1,58 @@
-import CloseIcon from '@mui/icons-material/Close';
-
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
 import {
     Box,
+    StoreOutlinedIcon,
+    FileUploadOutlinedIcon,
+    AddCircleOutlinedIcon,
     Button,
     Card,
     FormControl,
     Grid,
-    IconButton,
     InputLabel,
     MenuItem,
-    Modal,
     Select,
     Stack,
     TextField,
     Typography,
     useMediaQuery,
-    useTheme
-} from '@mui/material';
-import Avatar from '@mui/material/Avatar';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemText from '@mui/material/ListItemText';
-import { DataGrid, GridToolbar } from '@mui/x-data-grid';
-import Axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+    useTheme,
+    Avatar,
+    List,
+    ListItem,
+    ListItemAvatar,
+    ListItemText,
+    Modal,
+    useNavigate,
+    Swal,
+    useEffect,
+    useState,
+    React,
+    isWebUri,
+    Axios,
+    ApiComponent,
+    DegreeImageapi,
+    Showroomapi,
+    withAuth,
+    style,
+    useStyles,
+    DialogBox,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    CloseIcon,
+    DeleteIcon,
+    EditIcon,
+    DataGrid,
+    GridToolbar,
+    TaskAltOutlinedIcon,
+    TabContext,
+    TabList,
+    TabPanel,
+    Tab,
+    IconButton
+} from './muiComponents';
 
-import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
-import Tab from '@mui/material/Tab';
-import ApiComponent from '../apicomp/ApiComponent';
-import { DegreeImageapi, DegreeImageListapi, Showroomapi } from '../apicomp/Apiurls';
-import withAuth from '../pages/authentication/authentication3/withAuth';
-import style from '../styles/Boxstyle';
-import useStyles from '../styles/styles';
-import DialogBox from './DialogBox';
+import { DegreeImageListapi } from '../apicomp/Apiurls';
 
 function DataTable() {
     const theme = useTheme();

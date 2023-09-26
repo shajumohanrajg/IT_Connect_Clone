@@ -28,7 +28,7 @@ const SamplePage = () => {
             <CustomCard>
                 <CustomList icon={<StoreOutlinedIcon />} text="Showrooms" iconColor="#ffffff" variant="h3" />
                 {isMobile ? (
-                    <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton} href="/showroomadd">
+                    <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton1} href="/showroomadd">
                         <AddIcon sx={{ color: 'white' }} />
                     </Fab>
                 ) : (

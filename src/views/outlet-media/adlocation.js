@@ -1,26 +1,62 @@
-import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
-import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined';
-
-import { Button, Card, Stack, Typography } from '@mui/material';
-import Avatar from '@mui/material/Avatar';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemText from '@mui/material/ListItemText';
-import Axios from 'axios';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import {
+    Box,
+    StoreOutlinedIcon,
+    FileUploadOutlinedIcon,
+    AddCircleOutlinedIcon,
+    Button,
+    Card,
+    FormControl,
+    Grid,
+    InputLabel,
+    MenuItem,
+    Select,
+    Stack,
+    TextField,
+    Typography,
+    useMediaQuery,
+    useTheme,
+    Avatar,
+    List,
+    ListItem,
+    ListItemAvatar,
+    ListItemText,
+    Modal,
+    useNavigate,
+    Swal,
+    useEffect,
+    useState,
+    React,
+    isWebUri,
+    Axios,
+    ApiComponent,
+    DegreeImageapi,
+    Showroomapi,
+    withAuth,
+    style,
+    useStyles,
+    DialogBox,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    CloseIcon,
+    DeleteIcon,
+    EditIcon,
+    DataGrid,
+    GridToolbar,
+    TaskAltOutlinedIcon,
+    TabContext,
+    TabList,
+    TabPanel,
+    Tab,
+    AddIcon,
+    CustomModal
+} from './muiComponents';
 
 import { BrandLocationapi } from '../apicomp/Apiurls';
-import withAuth from '../pages/authentication/authentication3/withAuth';
-import useStyles from '../styles/styles';
-import DialogBox from './DialogBox';
-import CustomModal from './CustomModal';
-import Table from './adlocationtable';
 
-import AddIcon from '@mui/icons-material/Add';
-import { Fab, useMediaQuery, useTheme } from '@mui/material';
+import Table from './adlocationtable';
+import HeaderCard from './HeaderCard';
 
 const SamplePage = () => {
     const navigate = useNavigate();
@@ -106,42 +142,8 @@ const SamplePage = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 })}
+            <HeaderCard title=" Brand Location" buttonname=" Brand Location" handleOpen={handleOpen} />
 
-            <Card sx={{ width: '100%', boxShadow: 0 }}>
-                <Stack
-                    direction={{ xs: 'column', sm: 'row' }}
-                    justifyContent="space-between"
-                    alignItems="center"
-                    spacing={2}
-                    sx={{ padding: 1 }}
-                >
-                    <List>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar sx={{ background: 'linear-gradient(to right bottom, #fb6340, #fbb140)' }}>
-                                    <StoreOutlinedIcon sx={{ color: 'white' }} />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText>
-                                {' '}
-                                <Typography variant="h3" sx={{ color: '#444444' }}>
-                                    Brand Location
-                                </Typography>
-                            </ListItemText>
-                        </ListItem>
-                    </List>
-
-                    {isMobile ? (
-                        <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton} onClick={handleOpen}>
-                            <AddIcon sx={{ color: 'white' }} />
-                        </Fab>
-                    ) : (
-                        <Button className={classes.Button} variant="contained" onClick={handleOpen} startIcon={<AddCircleOutlinedIcon />}>
-                            Brand Location
-                        </Button>
-                    )}
-                </Stack>
-            </Card>
             <CustomModal
                 open={open}
                 onClose={handleClose}

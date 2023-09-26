@@ -19,6 +19,7 @@ import Table from './classtable';
 
 import AddIcon from '@mui/icons-material/Add';
 import { Fab, useMediaQuery, useTheme } from '@mui/material';
+import HeaderCard from './HeaderCard';
 import CustomModal from './CustomModal';
 
 const SamplePage = () => {
@@ -103,18 +104,7 @@ const SamplePage = () => {
     };
     return (
         <div>
-            <CustomCard>
-                <CustomList icon={<StoreOutlinedIcon />} text="Class Management" iconColor="#ffffff" variant="h3" />
-                {isMobile ? (
-                    <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton} onClick={handleOpen}>
-                        <AddIcon sx={{ color: 'white' }} />
-                    </Fab>
-                ) : (
-                    <Button className={classes.Button} variant="contained" onClick={handleOpen} startIcon={<AddCircleOutlinedIcon />}>
-                        Class
-                    </Button>
-                )}
-            </CustomCard>
+            <HeaderCard title="Class Management" buttonname="Class" handleOpen={handleOpen} />
 
             {responseMessage &&
                 Swal.fire({

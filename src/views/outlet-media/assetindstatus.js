@@ -1,48 +1,102 @@
-import AddIcon from '@mui/icons-material/Add';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined';
-import TripOriginTwoToneIcon from '@mui/icons-material/TripOriginTwoTone';
-import { Timeline as MuiTimeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineSeparator } from '@mui/lab';
-import { timelineItemClasses } from '@mui/lab/TimelineItem';
-import { Box, Card, CardContent, CardMedia, IconButton, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
-import Fab from '@mui/material/Fab';
+// import AddIcon from '@mui/icons-material/Add';
+// import MoreVertIcon from '@mui/icons-material/MoreVert';
+// import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined';
+// import TripOriginTwoToneIcon from '@mui/icons-material/TripOriginTwoTone';
+// import { Timeline as MuiTimeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineSeparator } from '@mui/lab';
+// import { timelineItemClasses } from '@mui/lab/TimelineItem';
+// import { Box, Card, CardContent, CardMedia, IconButton, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
+// import Fab from '@mui/material/Fab';
 
-import { Grid } from '@mui/material';
-import Avatar from '@mui/material/Avatar';
+// import { Grid } from '@mui/material';
+// import Avatar from '@mui/material/Avatar';
 
-import CardHeader from '@mui/material/CardHeader';
+// import CardHeader from '@mui/material/CardHeader';
 
-import Divider from '@mui/material/Divider';
+// import Divider from '@mui/material/Divider';
 
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemText from '@mui/material/ListItemText';
+// import List from '@mui/material/List';
+// import ListItem from '@mui/material/ListItem';
+// import ListItemAvatar from '@mui/material/ListItemAvatar';
+// import ListItemText from '@mui/material/ListItemText';
 
-import { styled } from '@mui/material/styles';
+// import { styled } from '@mui/material/styles';
 
-import { makeStyles } from '@mui/styles';
-import Axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+// import { makeStyles } from '@mui/styles';
+// import Axios from 'axios';
+// import React, { useEffect, useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import Swal from 'sweetalert2';
 
-import Branding from '../../../src/assets/images/branding.png';
-import Branding1 from '../../../src/assets/images/branding1.png';
-import Branding2 from '../../../src/assets/images/branding2.png';
-import ApiComponent from '../apicomp/ApiComponent';
+// import Branding from '../../../src/assets/images/branding.png';
+// import Branding1 from '../../../src/assets/images/branding1.png';
+// import Branding2 from '../../../src/assets/images/branding2.png';
+// import ApiComponent from '../apicomp/ApiComponent';
+// import {
+//     AddAdvertisementFormapi,
+//     Brandapi,
+//     OutletMediaFormapi,
+//     OutletMediaListapi,
+//     Showroomapi,
+//     Statusapi,
+//     Vendorapi
+// } from '../apicomp/Apiurls';
+// import withAuth from '../pages/authentication/authentication3/withAuth';
+// import DialogBox from './DialogBox';
+// import OrderTimeline from './timeline1';
+// import React from 'react';
 import {
+    AddIcon,
+    MoreVertIcon,
+    StoreOutlinedIcon,
+    TripOriginTwoToneIcon,
+    MuiTimeline,
+    TimelineConnector,
+    TimelineContent,
+    TimelineDot,
+    TimelineItem,
+    TimelineSeparator,
+    timelineItemClasses,
+    Box,
+    Card,
+    CardContent,
+    CardMedia,
+    IconButton,
+    Stack,
+    Typography,
+    useMediaQuery,
+    useTheme,
+    Fab,
+    Grid,
+    Avatar,
+    CardHeader,
+    Divider,
+    List,
+    ListItem,
+    ListItemAvatar,
+    ListItemText,
+    styled,
+    makeStyles,
+    Axios,
+    React,
+    useEffect,
+    useState,
+    useNavigate,
+    Swal,
+    Branding,
+    Branding1,
+    Branding2,
+    ApiComponent,
     AddAdvertisementFormapi,
     Brandapi,
     OutletMediaFormapi,
     OutletMediaListapi,
     Showroomapi,
     Statusapi,
-    Vendorapi
-} from '../apicomp/Apiurls';
-import withAuth from '../pages/authentication/authentication3/withAuth';
-import DialogBox from './DialogBox';
-import OrderTimeline from './timeline1';
+    Vendorapi,
+    withAuth,
+    DialogBox,
+    OrderTimeline
+} from './muiComponents';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -72,7 +126,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center'
     },
-    fabbutton: {
+    fabbutton1: {
         position: 'fixed',
         bottom: '20px',
         right: '20px',
@@ -80,6 +134,7 @@ const useStyles = makeStyles((theme) => ({
     },
     listItem: {
         fontWeight: 'bold',
+        animation: 'none !important',
         transition: 'transform 0.3s', // Adding a smooth transition
         '&:hover': {
             backgroundColor: '#fff2ea',
@@ -108,39 +163,6 @@ function DataTable() {
     const handlenestClose = () => {
         setnestOpen(false);
     };
-
-    const columns1 = [
-        {
-            field: 'name',
-            headerName: 'Showroom',
-
-            width: isMobile ? 100 : 120
-        },
-        {
-            field: 'branding_type',
-            headerName: 'Total',
-
-            width: isMobile ? 80 : 120
-        },
-        {
-            field: 'branding_location',
-            headerName: 'Active',
-
-            width: isMobile ? 80 : 120
-        },
-        {
-            field: 'brand',
-            headerName: 'Expired',
-
-            width: isMobile ? 80 : 120
-        },
-        {
-            field: 'brandi',
-            headerName: 'Empty',
-
-            width: isMobile ? 80 : 120
-        }
-    ];
 
     const [openDialog, setOpenDialog] = useState(false);
 
@@ -399,81 +421,12 @@ function DataTable() {
         setShowGrid((prevShowGrid) => !prevShowGrid);
     };
 
-    const Assetstatus = [
-        {
-            id: 1,
-            title: 'Wall Branding 2',
-            assetid: '11795',
-            status: 'Expired',
-            location: 'Entry Left',
-            material: 'Vinyl With Sunboard',
-            brand: 'Vivo',
-            model: 'V27/Y100',
-            img: Branding,
-            icon: <TripOriginTwoToneIcon sx={{ color: 'red' }} fontSize="medium" />
-        },
-        {
-            id: 2,
-            title: 'Name Board',
-            assetid: '11786',
-            status: 'Active',
-            location: 'Outide Entrance',
-            material: 'LED -Mono',
-            brand: 'Vivo',
-            model: 'Poorvika',
-            img: Branding1,
-            icon: <TripOriginTwoToneIcon sx={{ color: 'green' }} fontSize="medium" />
-        },
-        {
-            id: 3,
-            title: 'Wall Branding 2',
-            assetid: '11795',
-            status: 'Expired',
-            location: 'Entry Left',
-            material: 'Vinyl With Sunboard',
-            brand: 'Vivo',
-            model: 'V27/Y100',
-            img: Branding,
-            icon: <TripOriginTwoToneIcon sx={{ color: 'red' }} fontSize="medium" />
-        },
-        {
-            id: 4,
-            title: 'Name Board',
-            assetid: '11786',
-            status: 'Active',
-            location: 'Outide Entrance',
-            material: 'LED -Mono',
-            brand: 'Vivo',
-            model: 'Poorvika',
-            img: Branding1,
-            icon: <TripOriginTwoToneIcon sx={{ color: 'green' }} fontSize="medium" />
-        }
-    ];
-
-    const timelineData = [
-        {
-            date: '28-02-2023',
-            status: 'Expired',
-            model: 'Vivo',
-            brand: 'V27/Y100',
-            vendor: 'Other',
-            updated: '16-08-2022'
-        },
-        {
-            date: '11-05-2022',
-            status: 'Expired',
-            model: 'General',
-            brand: 'Poorvika',
-            vendor: 'Digital Images',
-            updated: '01-02-2021'
-        }
-    ];
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     return (
         <>
             {' '}
             <DialogBox open={showDialog} onClose={handleDialogClose} statusCode={statusCode} />
-            <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton} href="/addad">
+            <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton1} href="/addad">
                 <AddIcon sx={{ color: 'white' }} />
             </Fab>
             <Box sx={{ m: isMobile ? -2 : 0 }}>

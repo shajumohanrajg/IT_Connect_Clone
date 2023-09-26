@@ -25,6 +25,10 @@ import { Fab, useMediaQuery, useTheme } from '@mui/material';
 
 import { Brandapi } from '../apicomp/Apiurls';
 import CustomModal from './CustomModal';
+import SuccessAlert from './SuccessAlert';
+import Alert from '@mui/material/Alert';
+// import Stack from '@mui/material/Stack';
+import HeaderCard from './HeaderCard';
 
 const SamplePage = () => {
     const theme = useTheme();
@@ -125,41 +129,11 @@ const SamplePage = () => {
     };
     return (
         <div>
-            <Card sx={{ width: '100%', boxShadow: 0 }}>
-                <Stack
-                    direction={{ xs: 'column', sm: 'row' }}
-                    justifyContent="space-between"
-                    alignItems="center"
-                    spacing={2}
-                    sx={{ padding: 1 }}
-                >
-                    <List>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar sx={{ background: 'linear-gradient(to right bottom, #fb6340, #fbb140)' }}>
-                                    <StoreOutlinedIcon sx={{ color: 'white' }} />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText>
-                                {' '}
-                                <Typography variant="h3" sx={{ color: '#444444' }}>
-                                    Brand
-                                </Typography>
-                            </ListItemText>
-                        </ListItem>
-                    </List>
-                    {isMobile ? (
-                        <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton} onClick={handleOpen}>
-                            <AddIcon sx={{ color: 'white' }} />
-                        </Fab>
-                    ) : (
-                        <Button className={classes.Button} variant="contained" onClick={handleOpen} startIcon={<AddCircleOutlinedIcon />}>
-                            Brand
-                        </Button>
-                    )}
-                </Stack>
-            </Card>
+            <HeaderCard title="Brand" buttonname="Brand" handleOpen={handleOpen} />
+
             {responseMessage &&
+                // <SuccessAlert open={loading} />
+
                 Swal.fire({
                     title: 'success',
                     text: responseMessage,

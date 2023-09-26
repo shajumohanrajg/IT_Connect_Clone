@@ -37,6 +37,7 @@ import style from '../styles/Boxstyle';
 import useStyles from '../styles/styles';
 import DialogBox from './DialogBox';
 import Table from './designtypetable';
+import HeaderCard from './HeaderCard';
 
 const SamplePage = () => {
     const theme = useTheme();
@@ -139,40 +140,7 @@ const SamplePage = () => {
                     confirmButtonText: 'OK'
                 })}
 
-            <Card sx={{ width: '100%', boxShadow: 0 }}>
-                <Stack
-                    direction={{ xs: 'column', sm: 'row' }}
-                    justifyContent="space-between"
-                    alignItems="center"
-                    spacing={2}
-                    sx={{ padding: 1 }}
-                >
-                    <List>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar sx={{ background: 'linear-gradient(to right bottom, #fb6340, #fbb140)' }}>
-                                    <StoreOutlinedIcon sx={{ color: 'white' }} />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText>
-                                {' '}
-                                <Typography variant="h3" sx={{ color: '#444444' }}>
-                                    Design Type Management
-                                </Typography>
-                            </ListItemText>
-                        </ListItem>
-                    </List>
-                    {isMobile ? (
-                        <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton} onClick={handleOpen}>
-                            <AddIcon sx={{ color: 'white' }} />
-                        </Fab>
-                    ) : (
-                        <Button className={classes.Button} variant="contained" onClick={handleOpen} startIcon={<AddCircleOutlinedIcon />}>
-                            Design Type
-                        </Button>
-                    )}
-                </Stack>
-            </Card>
+            <HeaderCard title="Design Type Management" buttonname="Design Type" handleOpen={handleOpen} />
 
             <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
                 <Box sx={style}>

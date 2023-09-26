@@ -19,9 +19,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-import Branding1 from '../../../src/assets/images/branding1.png';
-import Branding2 from '../../../src/assets/images/branding2.png';
 import ApiComponent from '../apicomp/ApiComponent';
+import { Assetstatus1 } from './datalists';
 import {
     AddAdvertisementFormapi,
     Brandapi,
@@ -58,13 +57,13 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             transform: 'scale(0.9)'
         }
-    },
-    fabbutton: {
-        position: 'fixed',
-        bottom: '20px',
-        right: '20px',
-        zIndex: 999
     }
+    // fabbutton: {
+    //     position: 'fixed',
+    //     bottom: '20px',
+    //     right: '20px',
+    //     zIndex: 999
+    // }
 }));
 function DataTable() {
     const theme = useTheme();
@@ -353,56 +352,6 @@ function DataTable() {
         setShowGrid((prevShowGrid) => !prevShowGrid);
     };
 
-    const Assetstatus = [
-        {
-            id: 1,
-            title: 'Wall Branding 2',
-            assetid: '11795',
-            status: 'Expired',
-            location: 'Entry Left',
-            material: 'Vinyl With Sunboard',
-            brand: 'Vivo',
-            model: 'V27/Y100',
-            img: Branding2,
-            icon: <TripOriginTwoToneIcon sx={{ color: 'red' }} fontSize="medium" />
-        },
-        {
-            id: 2,
-            title: 'Name Board',
-            assetid: '11786',
-            status: 'Active',
-            location: 'Outide Entrance',
-            material: 'LED -Mono',
-            brand: 'Vivo',
-            model: 'Poorvika',
-            img: Branding1,
-            icon: <TripOriginTwoToneIcon sx={{ color: 'green' }} fontSize="medium" />
-        },
-        {
-            id: 3,
-            title: 'Wall Branding 2',
-            assetid: '11795',
-            status: 'Expired',
-            location: 'Entry Left',
-            material: 'Vinyl With Sunboard',
-            brand: 'Vivo',
-            model: 'V27/Y100',
-            img: Branding2,
-            icon: <TripOriginTwoToneIcon sx={{ color: 'red' }} fontSize="medium" />
-        },
-        {
-            id: 4,
-            title: 'Name Board',
-            assetid: '11786',
-            status: 'Active',
-            location: 'Outide Entrance',
-            material: 'LED -Mono',
-            brand: 'Vivo',
-            model: 'Poorvika',
-            img: Branding1,
-            icon: <TripOriginTwoToneIcon sx={{ color: 'green' }} fontSize="medium" />
-        }
-    ];
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     return (
         <>
@@ -443,7 +392,7 @@ function DataTable() {
                             </ListItem>
                         </List>
                         {isMobile ? (
-                            <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton} href="/addad">
+                            <Fab color="primary" aria-label="add" size="medium" className={classes.fabbutton1} href="/addad">
                                 <AddIcon sx={{ color: 'white' }} />
                             </Fab>
                         ) : (
@@ -453,7 +402,7 @@ function DataTable() {
                 </Card>
                 <br></br>
                 <Grid container spacing={2} sx={{ p: 0 }}>
-                    {Assetstatus.map((item) => (
+                    {Assetstatus1.map((item) => (
                         <Grid item sm={6} xs={12} md={6} lg={4} sx={{ p: 0 }} key={item.id}>
                             <Link href="/assetindstatus" underline="none" sx={{ textTransform: 'none' }}>
                                 <Card sx={{ width: '100%', my: 0, border: '1px solid #ebebeb' }} className={classes.cardst}>

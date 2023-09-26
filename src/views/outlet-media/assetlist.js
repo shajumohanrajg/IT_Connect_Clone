@@ -25,6 +25,7 @@ import Swal from 'sweetalert2';
 
 import ApiComponent from '../apicomp/ApiComponent';
 import SolutionCard from './assetlistcard';
+import { outletlist, dummydata, assetdata } from './datalists';
 import {
     AddAdvertisementFormapi,
     Brandapi,
@@ -213,7 +214,7 @@ function DataTable() {
                     window.location.reload();
                 }, 1000);
             })
-            .catch((err) => {
+            .catch((error) => {
                 if (error.response) {
                     const statusCode = error.response.status;
 
@@ -237,130 +238,6 @@ function DataTable() {
         };
     };
 
-    const dummydata = [
-        {
-            id: 1,
-            name: 'TN-EKTL',
-            total: '16',
-            active: '6',
-            expired: '7',
-            empty: '1'
-        },
-        {
-            id: 2,
-            name: 'TN-PORUR',
-            total: '8',
-            active: '5',
-            expired: '2',
-            empty: '1'
-        },
-        {
-            id: 3,
-            name: 'TN-POONAMALLEE',
-            total: '9',
-            active: '3',
-            expired: '5',
-            empty: '0'
-        },
-        {
-            id: 4,
-            name: 'TN-KANCHIPURAM',
-            total: '20',
-            active: '6',
-            expired: '9',
-            empty: '2'
-        },
-        {
-            id: 5,
-            name: 'TN-VADAPALANI',
-            total: '4',
-            active: '4',
-            expired: '0',
-            empty: '0'
-        },
-        {
-            id: 6,
-            name: 'TN-EKTL',
-            total: '16',
-            active: '6',
-            expired: '7',
-            empty: '1'
-        },
-        {
-            id: 7,
-            name: 'TN-PORUR',
-            total: '8',
-            active: '5',
-            expired: '2',
-            empty: '1'
-        },
-        {
-            id: 8,
-            name: 'TN-POONAMALLEE',
-            total: '9',
-            active: '3',
-            expired: '5',
-            empty: '0'
-        },
-        {
-            id: 9,
-            name: 'TN-KANCHIPURAM',
-            total: '20',
-            active: '6',
-            expired: '9',
-            empty: '2'
-        },
-        {
-            id: 10,
-            name: 'TN-VADAPALANI',
-            total: '4',
-            active: '4',
-            expired: '0',
-            empty: '0'
-        }
-    ];
-    const Assetstatus = [
-        {
-            id: 1,
-            title: 'Wall Branding 2',
-            assetid: '11795',
-            status: 'Expired',
-            location: 'Entry Left',
-            material: 'Vinyl With Sunboard',
-            brand: 'Vivo',
-            model: 'V27/Y100'
-        },
-        {
-            id: 2,
-            title: 'Name Board',
-            assetid: '11786',
-            status: 'Active',
-            location: 'Outide Entrance',
-            material: 'LED -Mono',
-            brand: 'Vivo',
-            model: 'Poorvika'
-        },
-        {
-            id: 3,
-            title: 'Wall Branding 2',
-            assetid: '11795',
-            status: 'Expired',
-            location: 'Entry Left',
-            material: 'Vinyl With Sunboard',
-            brand: 'Vivo',
-            model: 'V27/Y100'
-        },
-        {
-            id: 4,
-            title: 'Name Board',
-            assetid: '11786',
-            status: 'Active',
-            location: 'Outide Entrance',
-            material: 'LED -Mono',
-            brand: 'Vivo',
-            model: 'Poorvika'
-        }
-    ];
     const [showroomnames, setShowroomnames] = React.useState([]);
     const [showroomlocation, setShowroomlocation] = React.useState('');
     const [classname, setClassname] = useState('');
@@ -636,37 +513,7 @@ function DataTable() {
         setSortOrder((prevOrder) => (prevOrder === 'asc' ? 'desc' : 'asc'));
     };
 
-    const data = [
-        {
-            id: 1,
-            name: 'TN-EKTL',
-            asm: 'Lalitha',
-            status: 'Active',
-            brand: 'Apple',
-            storeStatus: 'Active stores',
-            dob: '22-07-2017'
-        },
-        {
-            id: 2,
-            name: 'TN-Porur',
-            asm: 'Ramkumar',
-            status: 'Expired',
-            brand: 'Samsung',
-            storeStatus: 'Closed stores',
-            dob: '22-07-2017'
-        },
-        {
-            id: 3,
-            name: 'TN-Poonamallee',
-            asm: 'Rajeshwari',
-            status: 'Empty Space',
-            brand: 'LG',
-            storeStatus: 'Active stores',
-            dob: '22-07-2017'
-        }
-    ];
-
-    const filteredData = data
+    const filteredData = assetdata
         .filter((item) => {
             const matchesStatus = selectedStatus.length === 0 || selectedStatus.includes(item.status);
             const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(item.brand);
@@ -692,6 +539,7 @@ function DataTable() {
                 return sortOrder === 'asc' ? compareResult : -compareResult;
             }
         });
+
     return (
         <>
             <DialogBox open={showDialog} onClose={handleDialogClose} statusCode={statusCode} />
@@ -778,305 +626,79 @@ function DataTable() {
                 <br></br>
                 {showGrid ? (
                     <Grid container spacing={2} direction="row">
-                        <Grid item xs={12} sm={6} md={6} lg={4}>
-                            <Link href="/assetstatus" underline="none" sx={{ textTransform: 'none' }}>
-                                <CardStyle>
-                                    <CardContent>
-                                        <Grid container direction="column" spacing={1}>
-                                            <Grid item>
-                                                <Typography variant="h4">TN-EKTL</Typography>
-                                            </Grid>
-                                            <Grid container spacing={0} direction="row" sx={{ mt: 0, p: 2 }}>
-                                                <Grid item xs={12} md={12} xl={6}>
-                                                    <Typography variant="subtitle1" sx={{ fontSize: isMobile ? 13 : 14 }}>
-                                                        <span>DOB :</span> <span style={{ color: '#bfbfbf' }}>13-05-2015</span>
-                                                    </Typography>
+                        {outletlist.map((item) => (
+                            <Grid item xs={12} sm={12} md={6} xl={4} lg={6} key={item.id}>
+                                <Link href="/assetstatus" underline="none" sx={{ textTransform: 'none' }}>
+                                    <CardStyle>
+                                        <CardContent>
+                                            <Grid container direction="column" spacing={1}>
+                                                <Grid item>
+                                                    <Typography variant="h4">{item.name}</Typography>
                                                 </Grid>
-                                                <Grid item xs={12} md={12} xl={6}>
-                                                    <Typography
-                                                        variant="subtitle1"
-                                                        sx={{ whiteSpace: 'nowrap', overflow: 'hidden', fontSize: isMobile ? 13 : 14 }}
-                                                    >
-                                                        <span style={{}}>ASM :</span> <span style={{ color: '#bfbfbf' }}>Marimuthu</span>
-                                                    </Typography>
+                                                <Grid container spacing={0} direction="row" sx={{ mt: 0, p: 2 }}>
+                                                    <Grid item xs={12} md={12} xl={6}>
+                                                        <Typography variant="subtitle1" sx={{ fontSize: isMobile ? 13 : 14 }}>
+                                                            <span>DOB :</span> <span style={{ color: '#bfbfbf' }}>{item.dob}</span>
+                                                        </Typography>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={12} xl={6}>
+                                                        <Typography
+                                                            variant="subtitle1"
+                                                            sx={{ whiteSpace: 'nowrap', overflow: 'hidden', fontSize: isMobile ? 13 : 14 }}
+                                                        >
+                                                            <span style={{}}>ASM :</span>{' '}
+                                                            <span style={{ color: '#bfbfbf' }}>{item.asm}</span>
+                                                        </Typography>
+                                                    </Grid>
                                                 </Grid>
-                                            </Grid>
 
-                                            <Grid container spacing={0} direction="row" sx={{ mt: 1 }}>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<PlaylistAddCheckCircleIcon fontSize="medium" color="info" />}
-                                                        label="16"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<CheckCircle fontSize="small" color="success" />}
-                                                        label="4"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<UnpublishedIcon fontSize="small" color="error" />}
-                                                        label="16"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<TripOriginIcon fontSize="small" color="primary" />}
-                                                        label="16"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-                                    </CardContent>
-                                </CardStyle>
-                            </Link>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={6} lg={4}>
-                            <Link href="/assetstatus" underline="none" sx={{ textTransform: 'none' }}>
-                                <CardStyle>
-                                    <CardContent>
-                                        <Grid container direction="column" spacing={2}>
-                                            <Grid item>
-                                                <Typography variant="h4">TN-EKTL</Typography>
-                                            </Grid>
-                                            <Grid container spacing={0} direction="row" sx={{ mt: 0, p: 2 }}>
-                                                <Grid item xs={12} md={12} xl={6}>
-                                                    <Typography variant="subtitle1" sx={{ fontSize: isMobile ? 13 : 14 }}>
-                                                        <span>DOB :</span> <span style={{ color: '#bfbfbf' }}>13-05-2015</span>
-                                                    </Typography>
-                                                </Grid>
-                                                <Grid item xs={12} md={12} xl={6}>
-                                                    <Typography
-                                                        variant="subtitle1"
-                                                        sx={{ whiteSpace: 'nowrap', overflow: 'hidden', fontSize: isMobile ? 13 : 14 }}
-                                                    >
-                                                        <span style={{}}>ASM :</span> <span style={{ color: '#bfbfbf' }}>Marimuthu</span>
-                                                    </Typography>
+                                                <Grid container spacing={0} direction="row" sx={{ mt: 1 }}>
+                                                    <Grid item xs={3} sm={3} md={3} lg={3}>
+                                                        <Chip
+                                                            icon={<PlaylistAddCheckCircleIcon fontSize="medium" color="info" />}
+                                                            label="16"
+                                                            sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={3} sm={3} md={3} lg={3}>
+                                                        <Chip
+                                                            icon={<CheckCircle fontSize="small" color="success" />}
+                                                            label="4"
+                                                            sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={3} sm={3} md={3} lg={3}>
+                                                        <Chip
+                                                            icon={<UnpublishedIcon fontSize="small" color="error" />}
+                                                            label="16"
+                                                            sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={3} sm={3} md={3} lg={3}>
+                                                        <Chip
+                                                            icon={<TripOriginIcon fontSize="small" color="primary" />}
+                                                            label="16"
+                                                            sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
+                                                        />
+                                                    </Grid>
                                                 </Grid>
                                             </Grid>
-
-                                            <Grid container spacing={0} direction="row" sx={{ mt: 1 }}>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<PlaylistAddCheckCircleIcon fontSize="medium" color="info" />}
-                                                        label="16"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<CheckCircle fontSize="small" color="success" />}
-                                                        label="4"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<UnpublishedIcon fontSize="small" color="error" />}
-                                                        label="16"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<TripOriginIcon fontSize="small" color="primary" />}
-                                                        label="16"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-                                    </CardContent>
-                                </CardStyle>
-                            </Link>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={6} lg={4}>
-                            <Link href="/assetstatus" underline="none" sx={{ textTransform: 'none' }}>
-                                <CardStyle>
-                                    <CardContent>
-                                        <Grid container direction="column" spacing={2}>
-                                            <Grid item>
-                                                <Typography variant="h4">TN-EKTL</Typography>
-                                            </Grid>
-                                            <Grid container spacing={0} direction="row" sx={{ mt: 0, p: 2 }}>
-                                                <Grid item xs={12} md={12} xl={6}>
-                                                    <Typography variant="subtitle1" sx={{ fontSize: isMobile ? 13 : 14 }}>
-                                                        <span>DOB :</span> <span style={{ color: '#bfbfbf' }}>13-05-2015</span>
-                                                    </Typography>
-                                                </Grid>
-                                                <Grid item xs={12} md={12} xl={6}>
-                                                    <Typography
-                                                        variant="subtitle1"
-                                                        sx={{ whiteSpace: 'nowrap', overflow: 'hidden', fontSize: isMobile ? 13 : 14 }}
-                                                    >
-                                                        <span style={{}}>ASM :</span> <span style={{ color: '#bfbfbf' }}>Marimuthu</span>
-                                                    </Typography>
-                                                </Grid>
-                                            </Grid>
-
-                                            <Grid container spacing={0} direction="row" sx={{ mt: 1 }}>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<PlaylistAddCheckCircleIcon fontSize="medium" color="info" />}
-                                                        label="16"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<CheckCircle fontSize="small" color="success" />}
-                                                        label="4"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<UnpublishedIcon fontSize="small" color="error" />}
-                                                        label="16"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<TripOriginIcon fontSize="small" color="primary" />}
-                                                        label="16"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-                                    </CardContent>
-                                </CardStyle>
-                            </Link>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={6} lg={4}>
-                            <Link href="/assetstatus" underline="none" sx={{ textTransform: 'none' }}>
-                                <CardStyle>
-                                    <CardContent>
-                                        <Grid container direction="column" spacing={2}>
-                                            <Grid item>
-                                                <Typography variant="h4">TN-EKTL</Typography>
-                                            </Grid>
-                                            <Grid container spacing={0} direction="row" sx={{ mt: 0, p: 2 }}>
-                                                <Grid item xs={12} md={12} xl={6}>
-                                                    <Typography variant="subtitle1" sx={{ fontSize: isMobile ? 13 : 14 }}>
-                                                        <span>DOB :</span> <span style={{ color: '#bfbfbf' }}>13-05-2015</span>
-                                                    </Typography>
-                                                </Grid>
-                                                <Grid item xs={12} md={12} xl={6}>
-                                                    <Typography
-                                                        variant="subtitle1"
-                                                        sx={{ whiteSpace: 'nowrap', overflow: 'hidden', fontSize: isMobile ? 13 : 14 }}
-                                                    >
-                                                        <span style={{}}>ASM :</span> <span style={{ color: '#bfbfbf' }}>Marimuthu</span>
-                                                    </Typography>
-                                                </Grid>
-                                            </Grid>
-
-                                            <Grid container spacing={0} direction="row" sx={{ mt: 1 }}>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<PlaylistAddCheckCircleIcon fontSize="medium" color="info" />}
-                                                        label="16"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<CheckCircle fontSize="small" color="success" />}
-                                                        label="4"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<UnpublishedIcon fontSize="small" color="error" />}
-                                                        label="16"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={3} sm={3} md={3} lg={3}>
-                                                    <Chip
-                                                        icon={<TripOriginIcon fontSize="small" color="primary" />}
-                                                        label="16"
-                                                        sx={{ backgroundColor: 'transparent', border: '1px solid #ebebeb' }}
-                                                    />
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-                                    </CardContent>
-                                </CardStyle>
-                            </Link>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={6} lg={4}>
-                            <SolutionCard
-                                title="TN-EKTL"
-                                description="Your description goes here."
-                                chipLabels={['16', '4', '16', '16']}
-                                dob="23/08/2023"
-                                asm="Marimuthu"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={6} lg={4}>
-                            <SolutionCard
-                                title="TN-EKTL"
-                                description="Your description goes here."
-                                chipLabels={['16', '4', '16', '16']}
-                                dob="23/08/2023"
-                                asm="Marimuthu"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={6} lg={4}>
-                            <SolutionCard
-                                title="TN-EKTL"
-                                description="Your description goes here."
-                                chipLabels={['16', '4', '16', '16']}
-                                dob="23/08/2023"
-                                asm="Marimuthu"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={6} lg={4}>
-                            <SolutionCard
-                                title="TN-EKTL"
-                                description="Your description goes here."
-                                chipLabels={['16', '4', '16', '16']}
-                                dob="23/08/2023"
-                                asm="Marimuthu"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={6} lg={4}>
-                            <SolutionCard
-                                title="TN-EKTL"
-                                description="Your description goes here."
-                                chipLabels={['16', '4', '16', '16']}
-                                dob="23/08/2023"
-                                asm="Marimuthu"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={6} lg={4}>
-                            <SolutionCard
-                                title="TN-EKTL"
-                                description="Your description goes here."
-                                chipLabels={['16', '4', '16', '16']}
-                                dob="23/08/2023"
-                                asm="Marimuthu"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={6} lg={4}>
-                            <SolutionCard
-                                title="TN-EKTL"
-                                description="Your description goes here."
-                                chipLabels={['16', '4', '16', '16']}
-                                dob="23/08/2023"
-                                asm="Marimuthu"
-                            />
-                        </Grid>
+                                        </CardContent>
+                                    </CardStyle>
+                                </Link>
+                            </Grid>
+                        ))}
+                        {outletlist.map((item) => (
+                            <Grid item xs={12} sm={6} md={6} lg={4} key={item.id}>
+                                <SolutionCard
+                                    title={item.name}
+                                    description="Your description goes here."
+                                    chipLabels={['16', '4', '16', '16']}
+                                    dob={item.dob}
+                                    asm={item.asm}
+                                />
+                            </Grid>
+                        ))}
                     </Grid>
                 ) : (
                     <Box>

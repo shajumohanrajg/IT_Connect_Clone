@@ -52,17 +52,14 @@ function DataTable() {
     const columns1 = [
         {
             field: 'name',
-
             headerName: 'Name',
             cellClassName: 'super-app-theme--cell',
             headerClassName: 'super-app-theme--header',
-
             width: 200
         },
         {
             field: 'status',
             headerName: 'Status',
-
             width: 120
         },
         {
@@ -138,10 +135,6 @@ function DataTable() {
             .then(() => {
                 handleCloseDialogdelete();
                 setResponseMessage('SuccesssFully Material Type Deleted');
-
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1000);
 
                 setTimeout(() => {
                     window.location.reload();
