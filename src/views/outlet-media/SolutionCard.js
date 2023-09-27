@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
         '&::before': {
             content: '""',
             position: 'absolute',
-            background: 'rgb(85 108 214 / 5%)',
+            //background: 'rgb(85 108 214 / 5%)',
             width: 170,
             height: 400,
             zIndex: -1,
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     },
     hoverColorBubble: {
         position: 'absolute',
-        background: 'rgb(54 81 207 / 15%)',
+        //background: 'rgb(54 81 207 / 15%)',
         width: '100rem',
         height: '100rem',
         left: 0,

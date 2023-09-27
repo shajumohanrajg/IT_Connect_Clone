@@ -1,6 +1,6 @@
 // material-ui
-import { makeStyles } from '@material-ui/core/styles';
-import { useTheme } from '@mui/material/styles';
+// import { makeStyles } from '@material-ui/core/styles';
+// import { useTheme } from '@mui/material/styles';
 import logo from 'assets/images/Poorvika_logo.png';
 
 /**
@@ -10,59 +10,60 @@ import logo from 'assets/images/Poorvika_logo.png';
  * import logo from 'assets/images/logo.svg';
  *
  */
-const useStyles = makeStyles((theme) => ({
-    logo: {
-        animation: '$shake 0.8s ease-in infinite'
-    },
-    '@keyframes shake': {
-        '0%': { transform: 'translateX(0)' },
-        '20%': { transform: 'translateY(-3px)' }
-        //'40%': { transform: 'translateX(10px)' }
-        //'60%': { transform: 'translateX(-10px)' },
-        //'80%': { transform: 'translateX(10px)' },
-        //'100%': { transform: 'translateX(0)' }
-    },
-    animatedBackground: {
-        animation: '$gradient 8s ease-in-out infinite'
-    },
-    animatedBackground1: {
-        animation: '$pulse 4s ease-in-out infinite'
-    },
-    '@keyframes pulse': {
-        from: { transform: 'scale(1)' },
-        to: { transform: 'scale(1.2)' }
-    },
-    '@keyframes gradient': {
-        '0%': { background: 'linear-gradient(45deg, #f8b195, #f67280)' },
-        '50%': { background: 'linear-gradient(45deg, #c06c84, #6c5b7b)' },
-        '100%': { background: 'linear-gradient(45deg, #355c7d, #6c5b7b)' }
-    }
-    // logo: {
-    //     opacity: 0,
-    //     transition: 'opacity 0.5s ease-in-out'
-    // },
-    // logoVisible: {
-    //     opacity: 1
-    // }
-    // logo: {
-    //     animation: '$spin 2s linear infinite'
-    // },
-    // '@keyframes spin': {
-    //     '0%': { transform: 'rotateY(0deg)' },
-    //     '100%': { transform: 'rotateY(360deg)' }
-    // }
-}));
+//const useStyles = makeStyles((theme) => ({
+// logo: {
+//     animation: '$shake 0.8s ease-in infinite'
+// },
+// '@keyframes shake': {
+//     '0%': { transform: 'translateX(0)' },
+//     '20%': { transform: 'translateY(-3px)' }
+//     //'40%': { transform: 'translateX(10px)' }
+//     //'60%': { transform: 'translateX(-10px)' },
+//     //'80%': { transform: 'translateX(10px)' },
+//     //'100%': { transform: 'translateX(0)' }
+// }
+// animatedBackground: {
+//     animation: '$gradient 8s ease-in-out infinite'
+// },
+// animatedBackground1: {
+//     animation: '$pulse 4s ease-in-out infinite'
+// },
+// '@keyframes pulse': {
+//     from: { transform: 'scale(1)' },
+//     to: { transform: 'scale(1.2)' }
+// },
+// '@keyframes gradient': {
+//     '0%': { background: 'linear-gradient(45deg, #f8b195, #f67280)' },
+//     '50%': { background: 'linear-gradient(45deg, #c06c84, #6c5b7b)' },
+//     '100%': { background: 'linear-gradient(45deg, #355c7d, #6c5b7b)' }
+// }
+// logo: {
+//     opacity: 0,
+//     transition: 'opacity 0.5s ease-in-out'
+// },
+// logoVisible: {
+//     opacity: 1
+// }
+// logo: {
+//     animation: '$spin 2s linear infinite'
+// },
+// '@keyframes spin': {
+//     '0%': { transform: 'rotateY(0deg)' },
+//     '100%': { transform: 'rotateY(360deg)' }
+// }
+//}));
 // ==============================|| LOGO SVG ||============================== //
 
 const Logo = () => {
     //const navigate = useNavigate();
-    const classes = useStyles();
+    //const classes = useStyles();
     //const [loading, setLoading] = React.useState(false);
     //const [responseMessage, setResponseMessage] = useState('');
-    const theme = useTheme();
+    //const theme = useTheme();
 
     return (
-        <img src={logo} alt="Poorvika" width="150" className={classes.animatedBackground1} />
+        <img src={logo} alt="Poorvika" width="150" />
+        // <img src={logo} alt="Poorvika" width="150" className={classes.animatedBackground1} />
         /**
          * if you want to use image instead of svg uncomment following, and comment out <svg> element.
          *

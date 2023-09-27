@@ -38,19 +38,20 @@ import {
 import withAuth from '../pages/authentication/authentication3/withAuth';
 import DialogBox from './DialogBox';
 
-const styles = {
-    card: {
-        width: 200,
-        height: 200,
-        background: 'lightblue',
-        borderRadius: 10,
-        boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.2)',
-        transition: 'transform 0.3s ease',
-        '&:hover': {
-            transform: 'scale(1.1)'
-        }
-    }
-};
+// const styles = {
+//     card: {
+//         width: 200,
+//         height: 200,
+//         background: 'lightblue',
+//         borderRadius: 10,
+//         boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.2)',
+//         transition: 'transform 0.3s ease',
+//         animation: 'none !important',
+//         '&:hover': {
+//             transform: 'scale(1.1)'
+//         }
+//     }
+// };
 
 const CardStyle = styled(Card)(({ theme }) => ({
     overflow: 'hidden',
@@ -58,6 +59,7 @@ const CardStyle = styled(Card)(({ theme }) => ({
     borderRadius: 10,
     boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.2)',
     transition: 'transform 0.3s ease-in-out',
+    animation: 'none !important',
     '&:hover': {
         transform: 'scale(0.9)'
     },
@@ -85,25 +87,25 @@ const CardStyle = styled(Card)(({ theme }) => ({
     }
 }));
 
-const useStyles = makeStyles((theme) => ({
-    tableContainer: {
-        marginTop: theme.spacing(2),
-        [theme.breakpoints.down('sm')]: {
-            marginTop: theme.spacing(1)
-        }
-    },
-    searchField: {
-        marginBottom: theme.spacing(2),
-        [theme.breakpoints.down('sm')]: {
-            marginBottom: theme.spacing(1)
-        }
-    },
-    pagination: {
-        marginTop: theme.spacing(2),
-        display: 'flex',
-        justifyContent: 'center'
-    }
-}));
+// const useStyles = makeStyles((theme) => ({
+//     tableContainer: {
+//         marginTop: theme.spacing(2),
+//         [theme.breakpoints.down('sm')]: {
+//             marginTop: theme.spacing(1)
+//         }
+//     },
+//     searchField: {
+//         marginBottom: theme.spacing(2),
+//         [theme.breakpoints.down('sm')]: {
+//             marginBottom: theme.spacing(1)
+//         }
+//     },
+//     pagination: {
+//         marginTop: theme.spacing(2),
+//         display: 'flex',
+//         justifyContent: 'center'
+//     }
+// }));
 function DataTable() {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -376,7 +378,7 @@ function DataTable() {
         }
     };
 
-    const classes = useStyles();
+    //const classes = useStyles();
     const [loading, setLoading] = React.useState(false);
     const [responseMessage, setResponseMessage] = useState('');
 
